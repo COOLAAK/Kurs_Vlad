@@ -1,8 +1,24 @@
 net="10.7.180."
 old=( $(cat ./Old ) )
+New=( $(cat ./New ) )
+ for ( ( i=110; i<=115;i++ ) )
+do
+        ip="$net$i"
+        ping -c1 $ip &>>/dev/null && echo "$ip +"&>>./New || echo "$ip -" &>>./New
 
-echo 
+done
 
+
+
+
+
+for ( ( i=0;i<5;i++ ) )
+if [old[i]!=New[i] ]
+then
+
+echo -e " $New[i] "
+
+fi
 
 
 
