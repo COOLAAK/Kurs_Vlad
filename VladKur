@@ -1,0 +1,18 @@
+net="10.7.180."
+old=( $(cat ./Old ) )
+
+echo 
+
+
+
+
+
+
+
+ in {110..115}
+do
+        ip="$net$i"
+        ping -c1 $ip &>>/dev/null && echo "$ip +"&>>./Old || echo "$ip -" &>>./Old 
+
+done
+
